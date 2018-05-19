@@ -1,0 +1,6 @@
+1. add template markup to index.php file
+2. necessary bootstrapping (after-theme_setup action hook)
+3. write css to style.css
+4. add support for bootstrap css
+5. change markup to theme code
+6. split into multiple files
