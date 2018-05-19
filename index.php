@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2 class="post-title">
-                            <?php the_title(); ?>
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                         </h2>
                     </div>
                 </div>
@@ -45,7 +45,15 @@
                         <p>
                             <?php
                             if ( has_post_thumbnail() ) {
-                                the_post_thumbnail( "large", array("class"=>"img-fluid") );
+                                the_post_thumbnail( "large", array( "class" => "img-fluid" ) );
+                            }
+                            ?>
+
+                            <?php
+                            if ( is_single() ) {
+                                the_content();
+                            } else {
+                                the_excerpt();
                             }
                             ?>
                         </p>
@@ -61,14 +69,14 @@
 
     <div class="container post-pagination">
         <div class="row">
-            <div class="col-md-4"> </div>
+            <div class="col-md-4"></div>
             <div class="col-md-8">
                 <?php
-                    the_posts_pagination(array(
-                        "screen_reader_text"=>' ',
-                        "prev_text" => "New Posts",
-                        "next_text" => "Old Posts"
-                    ));
+                the_posts_pagination( array(
+                    "screen_reader_text" => ' ',
+                    "prev_text"          => "New Posts",
+                    "next_text"          => "Old Posts"
+                ) );
                 ?>
             </div>
         </div>
