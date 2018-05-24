@@ -5,7 +5,7 @@
 get_header();
 ?>
 <body <?php body_class(); ?>>
-<?php get_template_part( "hero-page" ); ?>
+<?php get_template_part( "/template-parts/about-page/hero-page" ); ?>
 
 <div class="posts">
     <?php
