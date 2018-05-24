@@ -109,7 +109,7 @@ function alpha_about_page_template_banner(){
                 background-image: url(<?php echo $alpha_feat_image;?>);
             }
         </style>
-        <?
+        <?php
     }
 }
 add_action("wp_head","alpha_about_page_template_banner",11);
