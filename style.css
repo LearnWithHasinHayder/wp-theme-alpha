@@ -84,3 +84,9 @@ h2.post-title {
     color: #222;
     text-decoration: none;
 }
+.navigation{
+    margin-bottom: 80px;
+}
+.post-title a{
+    color: #222;
+}

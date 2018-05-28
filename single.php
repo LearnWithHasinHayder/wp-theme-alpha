@@ -4,12 +4,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <div class="posts">
+                <div class="posts" <?php ?>>
                     <?php
                     while ( have_posts() ) :
                         the_post();
                         ?>
-                        <div class="post" <?php post_class(); ?>>
+                        <div <?php post_class(); ?>>
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -45,7 +45,7 @@
                                     <?php if ( comments_open() ): ?>
                                         <div class="col-md-10 offset-md-1">
                                             <?php
-                                            comments_template();
+                                            //comments_template();
                                             ?>
                                         </div>
                                     <?php endif; ?>
