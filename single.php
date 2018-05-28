@@ -42,6 +42,14 @@
                                             ?>
                                         </p>
                                     </div>
+                                    <div class="col-md-10 offset-md-1">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                
+                                            </div>
+                                            <div class="col-md-8"></div>
+                                        </div>
+                                    </div>
                                     <?php if ( comments_open() ): ?>
                                         <div class="col-md-10 offset-md-1">
                                             <?php
