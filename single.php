@@ -35,9 +35,7 @@
 
                                             the_content();
 
-                                            next_post_link();
-                                            echo "<br/>";
-                                            previous_post_link();
+                                            wp_link_pages();
 
                                             ?>
                                         </p>
@@ -45,7 +43,7 @@
                                     <div class="col-md-10 offset-md-1">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                
+
                                             </div>
                                             <div class="col-md-8"></div>
                                         </div>
