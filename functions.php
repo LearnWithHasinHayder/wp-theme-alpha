@@ -12,10 +12,11 @@ function alpha_bootstrapping() {
     load_theme_textdomain( "alpha" );
     add_theme_support( "post-thumbnails" );
     add_theme_support( "title-tag" );
+    add_theme_support( "custom-header" );
     register_nav_menu( "topmenu", __( "Top Menu", "alpha" ) );
     register_nav_menu( "footermenu", __( "Footer Menu", "alpha" ) );
 
-    add_theme_support("post-formats",array("image","quote","video","audio","link"));
+    add_theme_support( "post-formats", array( "image", "quote", "video", "audio", "link" ) );
 }
 
 add_action( "after_setup_theme", "alpha_bootstrapping" );
@@ -25,7 +26,7 @@ function alpha_assets() {
     wp_enqueue_style( "bootstrap", "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" );
     wp_enqueue_style( "featherlight-css", "//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.css" );
 
-    wp_enqueue_style("dashicons");
+    wp_enqueue_style( "dashicons" );
     wp_enqueue_style( "alpha", get_stylesheet_uri(), null, VERSION );
     wp_enqueue_script( "featherlight-js", "//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js", array( "jquery" ), "0.0.1", true );
 
@@ -105,35 +106,54 @@ function alpha_menu_item_class( $classes, $item ) {
 add_filter( "nav_menu_css_class", "alpha_menu_item_class", 10, 2 );
 
 
-function alpha_about_page_template_banner(){
-    if(is_page()) {
-        $alpha_feat_image = get_the_post_thumbnail_url(null,"large");
+function alpha_about_page_template_banner() {
+    if ( is_page() ) {
+        $alpha_feat_image = get_the_post_thumbnail_url( null, "large" );
         ?>
         <style>
-            .page-header{
+            .page-header {
                 background-image: url(<?php echo $alpha_feat_image;?>);
             }
         </style>
         <?php
     }
+
+    if ( is_front_page() ) {
+        if ( current_theme_supports( "custom-header" ) ) {
+            ?>
+            <style>
+                .header{
+                    background-image: url(<?php echo header_image();?>);
+                    background-size: cover;
+                    margin-bottom: 50px;
+                }
+            </style>
+            <?php
+        }
+    }
 }
-add_action("wp_head","alpha_about_page_template_banner",11);
+
+add_action( "wp_head", "alpha_about_page_template_banner", 11 );
 
 
-function alpha_body_class($classes){
-    unset($classes[array_search("custom-background", $classes)]);
-    unset($classes[array_search("single-format-audio", $classes)]);
+function alpha_body_class( $classes ) {
+    unset( $classes[ array_search( "custom-background", $classes ) ] );
+    unset( $classes[ array_search( "single-format-audio", $classes ) ] );
     $classes[] = "newclass";
+
     return $classes;
 }
-add_filter("body_class","alpha_body_class");
+
+add_filter( "body_class", "alpha_body_class" );
 
 
-function alpha_post_class($classes){
-    unset($classes[array_search("format-audio", $classes)]);
+function alpha_post_class( $classes ) {
+    unset( $classes[ array_search( "format-audio", $classes ) ] );
+
     return $classes;
 }
-add_filter("post_class","alpha_post_class");
+
+add_filter( "post_class", "alpha_post_class" );
 
 
 
