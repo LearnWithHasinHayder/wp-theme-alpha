@@ -8,7 +8,7 @@ if ( !is_active_sidebar( "sidebar-1" ) ) {
 ?>
 
 <?php get_header(); ?>
-<body <?php body_class(); ?>>
+<body <?php body_class(array("first_class","second_class")); ?>>
 <?php get_template_part( "/template-parts/common/hero" ); ?>
     <div class="container">
         <div class="row">
@@ -18,7 +18,7 @@ if ( !is_active_sidebar( "sidebar-1" ) ) {
                     while ( have_posts() ) :
                         the_post();
                         ?>
-                        <div <?php post_class(); ?>>
+                        <div <?php post_class(array("first_class","second_class")); ?>>
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-12">
