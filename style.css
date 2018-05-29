@@ -96,3 +96,12 @@ h2.post-title {
     font-size: 100px;
     margin-bottom: 40px;
 }
+
+.authorimage img{
+    border-radius: 48px;
+}
+
+.authorsection{
+    border:1px solid #ccc;
+    padding:25px;
+}
