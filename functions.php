@@ -19,7 +19,6 @@ function alpha_bootstrapping() {
         'height'             => 600,
         'flex-height'        => true,
         'flex-width'         => true,
-
     );
     add_theme_support( "custom-header", $alpha_custom_header_details );
 
@@ -29,7 +28,7 @@ function alpha_bootstrapping() {
     );
     add_theme_support( "custom-logo", $alpha_custom_logo_defaults );
 
-
+    add_theme_support("custom-background");
 
     register_nav_menu( "topmenu", __( "Top Menu", "alpha" ) );
     register_nav_menu( "footermenu", __( "Footer Menu", "alpha" ) );
@@ -166,7 +165,6 @@ add_action( "wp_head", "alpha_about_page_template_banner", 11 );
 
 
 function alpha_body_class( $classes ) {
-    unset( $classes[ array_search( "custom-background", $classes ) ] );
     unset( $classes[ array_search( "single-format-audio", $classes ) ] );
     $classes[] = "newclass";
 
