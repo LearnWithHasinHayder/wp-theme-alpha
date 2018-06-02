@@ -36,14 +36,9 @@ function alpha_bootstrapping() {
     add_theme_support( "post-formats", array( "image", "quote", "video", "audio", "link" ) );
 
     add_image_size("alpha-square",400,400,true); //center center
-    add_image_size("alpha-portrait",400,9999);
-    add_image_size("alpha-landscape",9999,400);
-    add_image_size("alpha-landscape-hard-cropped",600,400);
-
-    add_image_size("alpha-square-two",400,400,true);
-
-    add_image_size("alpha-square-new",401,401,array("left","top"));
-    add_image_size("alpha-square-another",402,402,array("left","bottom"));
+    add_image_size("alpha-square-new1",401,401,array("left","top"));
+    add_image_size("alpha-square-new2",500,500,array("center","center"));
+    add_image_size("alpha-square-new3",600,600,array("right","center"));
 
 }
 
@@ -192,6 +187,12 @@ function alpha_post_class( $classes ) {
 }
 
 add_filter( "post_class", "alpha_post_class" );
+
+//function alpha_image_srcset(){
+//    return null;
+//}
+//add_filter("wp_calculate_image_srcset","alpha_image_srcset");
+add_filter("wp_calculate_image_srcset","__return_null");
 
 
 

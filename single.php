@@ -44,6 +44,10 @@ if ( !is_active_sidebar( "sidebar-1" ) ) {
 
                                             the_content();
 
+                                            the_post_thumbnail("alpha-square-new1");
+                                            the_post_thumbnail("alpha-square-new2");
+                                            the_post_thumbnail("alpha-square-new3");
+
                                             wp_link_pages();
 
                                             ?>
