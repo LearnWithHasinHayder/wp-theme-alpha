@@ -34,6 +34,17 @@ function alpha_bootstrapping() {
     register_nav_menu( "footermenu", __( "Footer Menu", "alpha" ) );
 
     add_theme_support( "post-formats", array( "image", "quote", "video", "audio", "link" ) );
+
+    add_image_size("alpha-square",400,400,true); //center center
+    add_image_size("alpha-portrait",400,9999);
+    add_image_size("alpha-landscape",9999,400);
+    add_image_size("alpha-landscape-hard-cropped",600,400);
+
+    add_image_size("alpha-square-two",400,400,true);
+
+    add_image_size("alpha-square-new",401,401,array("left","top"));
+    add_image_size("alpha-square-another",402,402,array("left","bottom"));
+
 }
 
 add_action( "after_setup_theme", "alpha_bootstrapping" );
@@ -181,8 +192,6 @@ function alpha_post_class( $classes ) {
 }
 
 add_filter( "post_class", "alpha_post_class" );
-
-
 
 
 
