@@ -58,7 +58,7 @@ if ( !is_active_sidebar( "sidebar-1" ) ) {
                                         <div class="row">
                                             <div class="col-md-2 authorimage">
                                                 <?php
-                                                echo get_avatar( get_the_author_meta( "id" ) );
+                                                echo get_avatar( get_the_author_meta( "ID" ) );
                                                 ?>
                                             </div>
                                             <div class="col-md-10">
