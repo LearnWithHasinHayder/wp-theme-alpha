@@ -26,7 +26,7 @@ if ( !is_active_sidebar( "sidebar-1" ) ) {
                                             <?php the_title(); ?>
                                         </h2>
                                         <p class="<?php echo $alpha_text_class; ?>">
-                                            <em><?php the_author(); ?></em><br/>
+                                            <em><?php the_author_posts_link(); ?></em><br/>
                                             <?php echo get_the_date(); ?>
                                         </p>
                                     </div>
