@@ -120,7 +120,12 @@ h2.post-title {
 
 
 
-
+.testimonials img{
+    width:120px;
+    height: auto;
+    border-radius: 60px;
+    margin-bottom: 30px;
+}
 
 
 
