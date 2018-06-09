@@ -127,7 +127,10 @@ h2.post-title {
     margin-bottom: 30px;
 }
 
-
+.search-highlight{
+    background-color: #ff0;
+    font-weight: bold;
+}
 
 
 

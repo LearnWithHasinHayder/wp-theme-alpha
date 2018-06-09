@@ -36,4 +36,20 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <?php
+                if(is_search()){
+                    ?>
+                <h3><?php _e("You searched for","alpha") ?>: <?php the_search_query(); ?></h3>
+                <?php
+                }
+                ?>
+                <?php
+                echo get_search_form();
+                ?>
+            </div>
+        </div>
+    </div>
 </div>

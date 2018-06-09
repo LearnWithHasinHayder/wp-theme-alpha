@@ -3,6 +3,20 @@
 <?php get_template_part( "/template-parts/common/hero" ); ?>
     <div class="posts">
         <?php
+        if ( ! have_posts() ) {
+            ?>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h4>
+                            <?php _e('No result found','alpha'); ?>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+            <?php
+        }
         while ( have_posts() ) {
             the_post();
             get_template_part( "post-formats/content", get_post_format() );
