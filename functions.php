@@ -14,7 +14,7 @@ function alpha_bootstrapping() {
     load_theme_textdomain( "alpha" );
     add_theme_support( "post-thumbnails" );
     add_theme_support( "title-tag" );
-    add_theme_support( 'html5', array( 'search-form' ) );
+    add_theme_support( 'html5', array( 'search-form','comment-list' ) );
     $alpha_custom_header_details = array(
         'header-text'        => true,
         'default-text-color' => '#222',
@@ -59,6 +59,8 @@ function alpha_assets() {
 
     wp_enqueue_style("alpha-style",get_template_directory_uri()."/assets/css/alpha.css");
 
+    if ( is_singular() && comments_open() && get_option('thread_comments') )
+        wp_enqueue_script( 'comment-reply' );
     wp_enqueue_script( "tns-js", "//cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.7.1/min/tiny-slider.js", null, "0.0.1", true );
 
     wp_enqueue_script( "featherlight-js", "//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js", array( "jquery" ), "0.0.1", true );
