@@ -1,6 +1,7 @@
 <?php
 require_once get_theme_file_path('/inc/tgm.php');
-require_once get_theme_file_path('/inc/acf-mb.php');
+//require_once get_theme_file_path('/inc/acf-mb.php');
+require_once get_theme_file_path('/inc/cmb2-mb.php');
 if ( class_exists( 'Attachments' ) ) {
     require_once get_theme_file_path( "/lib/attachments.php" );
 }
@@ -234,6 +235,7 @@ function alpha_modify_main_query($wpq){
     }
 }
 add_action("pre_get_posts","alpha_modify_main_query");
+
 
 
 

@@ -59,12 +59,21 @@ function alpha_register_required_plugins() {
      */
     $plugins = array(
 
-        array(
+        /*array(
             'name'     => 'ACF',
             'slug'     => 'advanced-custom-fields',
             'required' => false,
+        ),*/
+        array(
+            'name'     => 'CMB2',
+            'slug'     => 'cmb2',
+            'required' => false,
         ),
-
+        array(
+            'name'      => 'CMB2 Conditionals',
+            'slug'      => 'cmb2-conditionals',
+            'source'    => 'https://github.com/jcchavezs/cmb2-conditionals/archive/master.zip',
+        ),
 
     );
 
