@@ -47,7 +47,7 @@
                 }
                 ?>
                 <?php
-                echo get_search_form();
+                //echo get_search_form();
                 ?>
             </div>
         </div>

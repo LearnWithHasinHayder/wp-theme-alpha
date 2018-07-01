@@ -50,7 +50,7 @@ if ( ! is_active_sidebar( "sidebar-1" ) ) {
                                         </div>
                                         <div>
                                             <?php
-                                            if ( !class_exists( 'Attachments' ) ) {
+                                            if ( ! class_exists( 'Attachments' ) ) {
                                                 if ( has_post_thumbnail() ) {
                                                     $thumbnail_url = get_the_post_thumbnail_url( null, "large" );
                                                     printf( '<a class="popup" href="%s" data-featherlight="image">', $thumbnail_url );
@@ -60,6 +60,82 @@ if ( ! is_active_sidebar( "sidebar-1" ) ) {
                                             }
 
                                             the_content();
+
+
+                                            if ( get_post_format() == "image" && function_exists( "the_field" ) ):
+
+                                                /*$camera_model = get_post_meta(get_the_ID(),"camera_model",true);
+                                                $related_posts = get_post_meta(get_the_ID(),"related_posts",true);
+                                                print_r($related_posts); */
+                                                ?>
+                                                <div class="metainfo">
+                                                    <strong>Camera
+                                                        Model: </strong> <?php the_field('camera_model'); ?><br/>
+                                                    <strong>Location: </strong>
+                                                    <?php
+                                                    $alpha_location = get_field( "location" );
+                                                    echo esc_html( $alpha_location );
+                                                    ?>
+                                                    <br/>
+                                                    <strong>Date: </strong> <?php the_field( "date" ); ?><br/>
+                                                    <?php if ( get_field( "licensed" ) ): ?>
+                                                        <?php echo apply_filters( "the_content", get_field( "license_information" ) ); ?>
+                                                    <?php endif; ?>
+
+                                                    <p>
+                                                        <?php
+                                                        $alpha_image         = get_field( "image" );
+                                                        $alpha_image_details = wp_get_attachment_image_src( $alpha_image, "alpha-square" );
+                                                        echo "<img src='" . esc_url( $alpha_image_details[0] ) . "'/>'";
+                                                        ?>
+                                                    </p>
+
+                                                    <p>
+                                                        <?php
+                                                        $file = get_field( "attachment" );
+                                                        if ( $file ) {
+                                                            $file_url   = wp_get_attachment_url( $file );
+                                                            $file_thumb = get_field( "thumbnail", $file );
+                                                            if ( $file_thumb ) {
+                                                                $file_thumb_details = wp_get_attachment_image_src( $file_thumb );
+                                                                echo "<a target='_blank' href='{$file_url}'><img src='" . esc_url( $file_thumb_details[0] ) . "'/></a>";
+                                                            } else {
+                                                                echo "<a target='_blank' href='{$file_url}'>{$file_url}</a>";
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </p>
+
+
+                                                    <?php if ( function_exists( "the_field" ) ) : ?>
+                                                        <div>
+                                                            <h1><?php _e( "Related Posts", "alpha" ); ?></h1>
+                                                            <?php
+                                                            $related_posts = get_field( "related_posts" );
+                                                            $alpha_rp      = new WP_Query( array(
+                                                                'post__in' => $related_posts,
+                                                                'orderby'  => 'post__in',
+                                                            ) );
+
+
+                                                            while ( $alpha_rp->have_posts() ) {
+                                                                $alpha_rp->the_post();
+                                                                ?>
+                                                                <h4><?php the_title(); ?></h4>
+                                                                <?php
+                                                            }
+                                                            wp_reset_query();
+                                                            ?>
+                                                        </div>
+                                                    <?php endif; ?>
+
+
+                                                </div>
+                                            <?php
+                                            endif;
+                                            ?>
+
+                                            <?php
                                             wp_link_pages();
 
                                             ?>
@@ -80,15 +156,25 @@ if ( ! is_active_sidebar( "sidebar-1" ) ) {
                                                 <p>
                                                     <?php echo get_the_author_meta( "description" ); ?>
                                                 </p>
+                                                <?php if ( function_exists( "the_field" ) ): ?>
+                                                    <p>
+                                                        Facebook
+                                                        URL: <?php the_field( "facebook", "user_" . get_the_author_meta( "ID" ) ) ?>
+                                                        <br/>
+                                                        Twitter
+                                                        URL: <?php the_field( "twitter", "user_" . get_the_author_meta( "ID" ) ) ?>
+                                                        <br/>
+                                                    </p>
+                                                <?php endif; ?>
 
                                             </div>
                                         </div>
                                     </div>
 
-                                    <?php if ( !post_password_required() ): ?>
+                                    <?php if ( ! post_password_required() ): ?>
                                         <div class="col-md-12">
                                             <?php
-                                            comments_template();
+                                            //comments_template();
                                             ?>
                                         </div>
                                     <?php endif; ?>
