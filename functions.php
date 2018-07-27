@@ -58,6 +58,7 @@ function alpha_assets() {
     wp_enqueue_style( "dashicons" );
     wp_enqueue_style( "tns-style", "//cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.7.1/tiny-slider.css" );
 
+    wp_enqueue_style("fontawesome","//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
     wp_enqueue_style( "alpha", get_stylesheet_uri(), VERSION );
 
     wp_enqueue_style( "alpha-style", get_template_directory_uri() . "/assets/css/alpha.css" );
